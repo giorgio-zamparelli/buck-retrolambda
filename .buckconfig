@@ -1,0 +1,10 @@
+[alias]
+  android_library = //:android_library
+  retrolambda = //:retrolambda
+  android_binary = //:android_binary
+[cache]
+  mode = dir
+  dir_max_size = 1GB
+[java]
+  source_level = 8
+  target_level = 8
