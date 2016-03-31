@@ -1,6 +1,6 @@
 prebuilt_jar(
   name = 'rt8',
-    binary_jar = 'rt8.jar',
+  binary_jar = 'rt8.jar',
 )
 
 android_resource(
@@ -13,7 +13,6 @@ android_resource(
 )
 
 android_library(
-
   name = 'android_library',
   srcs = glob(['app/src/main/java/**/*.java']),
   deps = [
@@ -23,7 +22,6 @@ android_library(
   visibility = [
     'PUBLIC',
   ],
-
 )
 
 genrule(
@@ -31,9 +29,6 @@ genrule(
   srcs = ['retrolambda.jar', 'apply-retrolambda.sh', ':android_library'],
   cmd = 'sh apply-retrolambda.sh',
   out = 'retrolambda__output/output.jar',
-  deps = [
-    ':android_library',
-  ]
 )
 
 keystore(
@@ -45,7 +40,6 @@ keystore(
 android_binary(
   name = 'android_binary',
   manifest = 'app/src/main/AndroidManifest.xml',
-  target = 'Google Inc.:Google APIs:21',
   keystore = ':debug_keystore',
   no_dx = [':rt8'],
   deps = [
